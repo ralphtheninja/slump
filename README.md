@@ -47,11 +47,11 @@ Returns a 32 bit integer. If `signed` is trueish both negative and positive valu
 
 Returns a float as a result of division of two random integers. Random floats are always signed.
 
-#### `random.string([size])`
+#### `random.string([length])`
 
-Returns a random string in `base64` format. The length of the string is at most `size` depending on which encoding is used for the underlying buffer. Default is `base64`.
+Returns a random string in `base64` format.
 
-If `length` is omitted the string length is a random integer between `0` and `200`. So the string can be empty.
+If `length` is omitted the string length is a random integer between `0` and `100`. So the string can be empty.
 
 #### `random.array([length])`
 
@@ -80,7 +80,8 @@ Generates a random `json` object value, i.e. either of the following:
 
 ## Todo
 
-* Configuration. Perhaps you want arrays of only strings or types of data matching some sort of schema to make the date conform to some kind of structure but still with random values.
+* Configuration for changing default behaviors and also per single operations, i.e. default lengths of strings etc.
+* More advanced schemas. It could be useful to generate random data that still follows a defined structure, perhaps you want arrays of only strings, number intervals and things like that.
 
 ## License
 All code, unless stated otherwise, is licensed under the [`WTFPL`](http://www.wtfpl.net/txt/copying/).
