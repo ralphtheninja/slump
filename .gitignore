@@ -1,0 +1,5 @@
+node_modules/
+.gitmodules
+test/tmp/
+npm-debug.log
+

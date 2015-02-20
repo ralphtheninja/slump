@@ -1,0 +1,30 @@
+{
+  "name": "slump",
+  "version": "0.0.0",
+  "description": "create random json",
+  "main": "index.js",
+  "homepage": "https://github.com/ralphtheninja/slump",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ralphtheninja/slump.git"
+  },
+  "scripts": {
+    "test": "tape test/*.js | faucet"
+  },
+  "author": "Lars-Magnus Skog <ralphtheninja@riseup.net>",
+  "keywords": [
+    "random",
+    "json",
+    "data"
+  ],
+  "license": "WTFPL",
+  "devDependencies": {
+    "faucet": "0.0.1",
+    "tape": "^3.5.0"
+  },
+  "dependencies": {
+    "core-util-is": "^1.0.1",
+    "rc": "^0.6.0",
+    "xtend": "^4.0.0"
+  }
+}
