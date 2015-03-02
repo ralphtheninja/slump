@@ -47,11 +47,18 @@ Returns a 32 bit integer. If `signed` is trueish both negative and positive valu
 
 Returns a float as a result of division of two random integers. Random floats are always signed.
 
-#### `random.string([length])`
+#### `random.string([options[, length]])`
 
-Returns a random string in `base64` format.
+Returns a random string in `utf8` encoding.
 
 If `length` is omitted the string length is a random integer between `0` and `100`. So the string can be empty.
+
+Randomizes a much longer string of bytes and cuts it off to appropriate length.
+
+`options` can be used for different encodings:
+
+  * `options.enc` *(string)* Defaults to `utf8`. Valid encodings are `utf8`, `ascii`, `hex`, `base64` and `base58`
+  * `options.length` *(number)* Length of string.
 
 #### `random.array([length])`
 

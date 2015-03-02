@@ -1,6 +1,6 @@
-var test = require('tape')
 var random = require('../')
-var util = require('core-util-is')
+var test   = require('tape')
+var util   = require('core-util-is')
 
 test('random integers', function (t) {
   t.plan(2000)
@@ -38,13 +38,85 @@ test('random strings with random length', function (t) {
   }
 })
 
-test('random strings fixed length, base64', function (t) {
+test('random strings fixed length, utf8 (default)', function (t) {
   t.plan(2000)
   var length = 20
   for (var i = 0; i < 1000; ++i) {
     var string = random.string(length)
     t.ok(util.isString(string))
     t.equal(string.length, length)
+  }
+})
+
+test('random strings fixed length, base64', function (t) {
+  t.plan(1500)
+  var ALPHABET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
+  var ALPHABET_MAP = {}
+  for (var i = 0; i < ALPHABET.length; ++i) {
+    ALPHABET_MAP[ALPHABET.charAt(i)] = i
+  }
+  function isBase64(str) {
+    for (var i = 0; i < str.length; ++i) {
+      var lookUp = ALPHABET_MAP[str[i]]
+      if (lookUp === undefined) return false
+      if (lookUp < 0 || lookUp > 63) return false
+    }
+    return true
+  }
+  var length = 20
+  for (var j = 0; j < 500; ++j) {
+    var string = random.string({ length: length, enc: 'base64' })
+    t.ok(util.isString(string))
+    t.equal(string.length, length)
+    t.ok(isBase64(string))
+  }
+})
+
+test('random strings fixed length, hex', function (t) {
+  t.plan(1500)
+  var ALPHABET = '0123456789abcdef'
+  var ALPHABET_MAP = {}
+  for (var i = 0; i < ALPHABET.length; ++i) {
+    ALPHABET_MAP[ALPHABET.charAt(i)] = i
+  }
+  function isHex(str) {
+    for (var i = 0; i < str.length; ++i) {
+      var lookUp = ALPHABET_MAP[str[i]]
+      if (lookUp === undefined) return false
+      if (lookUp < 0 || lookUp > 15) return false
+    }
+    return true
+  }
+  var length = 20
+  for (var j = 0; j < 500; ++j) {
+    var string = random.string({ length: length, enc: 'hex' })
+    t.ok(util.isString(string))
+    t.equal(string.length, length)
+    t.ok(isHex(string))
+  }
+})
+
+test('random strings fixed length, base58', function (t) {
+  t.plan(1500)
+  var ALPHABET = '123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz'
+  var ALPHABET_MAP = {}
+  for (var i = 0; i < ALPHABET.length; ++i) {
+    ALPHABET_MAP[ALPHABET.charAt(i)] = i
+  }
+  function isBase58(str) {
+    for (var i = 0; i < str.length; ++i) {
+      var lookUp = ALPHABET_MAP[str[i]]
+      if (lookUp === undefined) return false
+      if (lookUp < 0 || lookUp > 57) return false
+    }
+    return true
+  }
+  var length = 20
+  for (var j = 0; j < 500; ++j) {
+    var string = random.string({ length: length, enc: 'base58' })
+    t.ok(util.isString(string))
+    t.equal(string.length, length)
+    t.ok(isBase58(string))
   }
 })
 

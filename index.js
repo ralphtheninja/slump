@@ -1,4 +1,6 @@
 var crypto = require('crypto')
+var util   = require('core-util-is')
+var bs58   = require('bs58')
 
 exports.bytes = function (size) {
   return crypto.randomBytes(size || 1)
@@ -25,15 +27,23 @@ exports.float = function () {
   return n / d
 }
 
-exports.string = function (length) {
+exports.string = function (opts, length) {
+  var enc = 'utf8'
+
+  if (util.isNumber(opts)) {
+    length = opts
+  }
+  else if (util.isObject(opts)) {
+    length = length || opts.length
+    enc = opts.enc || enc
+  }
+
   if (!length) length = exports.integer() % 101
   if (!length) return ''
-  // TODO allow for different kinds of encodings
-  var res = exports.bytes(length).toString('base64')
-  if (res.length > length) {
-    res = res.substr(0, length)
-  }
-  return res
+
+  var bytes = exports.bytes(length * 10)
+
+  return encode(bytes, enc).substr(0, length)
 }
 
 exports.array = function (length, depth) {
@@ -84,4 +94,11 @@ exports.json = function (depth) {
   if (type == 5) return exports.string()
   if (type == 6) return exports.array(null, depth)
   if (type == 7) return exports.obj(null, depth)
+}
+
+function encode(bytes, enc) {
+  if (enc === 'base58') {
+    return bs58.encode(bytes)
+  }
+  return bytes.toString(enc)
 }
