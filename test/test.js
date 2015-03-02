@@ -48,6 +48,25 @@ test('random strings fixed length, utf8 (default)', function (t) {
   }
 })
 
+test('random strings based on predetermined values', function (t) {
+  t.plan(1000)
+  var length = 20
+  var values = []
+  values.push(random.string(length))
+  values.push(random.string(length))
+  values.push(random.string(length))
+  values.push(random.string(length))
+  var opts = {
+    values: values
+  }
+  for (var i = 0; i < 500; ++i) {
+    var string = random.string(opts)
+    t.ok(util.isString(string))
+    var index = values.indexOf(string)
+    t.ok(index >= 0 && index < values.length)
+  }
+})
+
 test('random strings fixed length, base64', function (t) {
   t.plan(1500)
   var ALPHABET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'

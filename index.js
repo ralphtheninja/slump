@@ -36,6 +36,11 @@ exports.string = function (opts, length) {
   else if (util.isObject(opts)) {
     length = length || opts.length
     enc = opts.enc || enc
+
+    if (util.isArray(opts.values) && opts.values.length > 0) {
+      var i = exports.integer() % opts.values.length
+      return opts.values[i]
+    }
   }
 
   if (!length) length = exports.integer() % 101

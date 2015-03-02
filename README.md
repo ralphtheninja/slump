@@ -59,6 +59,20 @@ Randomizes a much longer string of bytes and cuts it off to appropriate length.
 
   * `options.enc` *(string)* Defaults to `utf8`. Valid encodings are `utf8`, `ascii`, `hex`, `base64` and `base58`
   * `options.length` *(number)* Length of string.
+  * `options.values` *(array)* Array of predetermined strings.
+
+```js
+var random = require('slump')
+// random string with random length
+var s1 = random.string()
+// random string with length 20
+var s2 = random.string(20)
+// random base58 encoded string with length 30
+var s3 = random.string({ enc: 'base58', length: 30 })
+// randomize between predetermined values
+var values = [ 'apples', 'oranges', 'bananas' ]
+var s4 = random.string({ values: values })
+```
 
 #### `random.array([length])`
 
