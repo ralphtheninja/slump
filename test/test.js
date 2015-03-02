@@ -3,8 +3,8 @@ var test   = require('tape')
 var util   = require('core-util-is')
 
 test('random integers', function (t) {
-  t.plan(2000)
-  for (var i = 0; i < 1000; ++i) {
+  t.plan(1000)
+  for (var i = 0; i < 500; ++i) {
     var integer = random.integer()
     t.ok(util.isNumber(integer))
     t.ok(integer >= 0)
@@ -12,8 +12,8 @@ test('random integers', function (t) {
 })
 
 test('random signed integers', function (t) {
-  t.plan(2000)
-  for (var i = 0; i < 1000; ++i) {
+  t.plan(1000)
+  for (var i = 0; i < 500; ++i) {
     var integer = random.integer(true)
     t.ok(util.isNumber(integer))
     t.ok(integer >= 0 || integer < 0)
@@ -21,8 +21,8 @@ test('random signed integers', function (t) {
 })
 
 test('random floats', function (t) {
-  t.plan(2000)
-  for (var i = 0; i < 1000; ++i) {
+  t.plan(1000)
+  for (var i = 0; i < 500; ++i) {
     var float = random.float()
     t.ok(util.isNumber(float))
     t.ok(float >= 0 || float < 0)
@@ -30,8 +30,8 @@ test('random floats', function (t) {
 })
 
 test('random strings with random length', function (t) {
-  t.plan(2000)
-  for (var i = 0; i < 1000; ++i) {
+  t.plan(1000)
+  for (var i = 0; i < 500; ++i) {
     var string = random.string()
     t.ok(util.isString(string))
     t.ok(string.length <= 100)
@@ -39,9 +39,9 @@ test('random strings with random length', function (t) {
 })
 
 test('random strings fixed length, utf8 (default)', function (t) {
-  t.plan(2000)
+  t.plan(1000)
   var length = 20
-  for (var i = 0; i < 1000; ++i) {
+  for (var i = 0; i < 500; ++i) {
     var string = random.string(length)
     t.ok(util.isString(string))
     t.equal(string.length, length)
@@ -121,8 +121,8 @@ test('random strings fixed length, base58', function (t) {
 })
 
 test('random arrays with random length', function (t) {
-  t.plan(2000)
-  for (var i = 0; i < 1000; ++i) {
+  t.plan(1000)
+  for (var i = 0; i < 500; ++i) {
     var array = random.array()
     t.ok(util.isArray(array))
     t.ok(array.length <= 10)
@@ -143,8 +143,8 @@ test('random arrays with fixed length', function (t) {
 })
 
 test('random obj with random number of keys', function (t) {
-  t.plan(2000)
-  for (var i = 0; i < 1000; ++i) {
+  t.plan(1000)
+  for (var i = 0; i < 500; ++i) {
     var obj = random.obj()
     t.ok(util.isObject(obj))
     t.ok(Object.keys(obj).length <= 10)
@@ -167,8 +167,8 @@ test('random obj with fixed number of keys', function (t) {
 })
 
 test('random json values', function (t) {
-  t.plan(2000)
-  for (var i = 0; i < 2000; ++i) {
+  t.plan(1000)
+  for (var i = 0; i < 1000; ++i) {
     t.ok(validJSON(random.json()))
   }
 })
