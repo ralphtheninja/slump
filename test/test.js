@@ -74,7 +74,7 @@ test('random strings fixed length, base64', function (t) {
   for (var i = 0; i < ALPHABET.length; ++i) {
     ALPHABET_MAP[ALPHABET.charAt(i)] = i
   }
-  function isBase64(str) {
+  function isBase64 (str) {
     for (var i = 0; i < str.length; ++i) {
       var lookUp = ALPHABET_MAP[str[i]]
       if (lookUp === undefined) return false
@@ -98,7 +98,7 @@ test('random strings fixed length, hex', function (t) {
   for (var i = 0; i < ALPHABET.length; ++i) {
     ALPHABET_MAP[ALPHABET.charAt(i)] = i
   }
-  function isHex(str) {
+  function isHex (str) {
     for (var i = 0; i < str.length; ++i) {
       var lookUp = ALPHABET_MAP[str[i]]
       if (lookUp === undefined) return false
@@ -122,7 +122,7 @@ test('random strings fixed length, base58', function (t) {
   for (var i = 0; i < ALPHABET.length; ++i) {
     ALPHABET_MAP[ALPHABET.charAt(i)] = i
   }
-  function isBase58(str) {
+  function isBase58 (str) {
     for (var i = 0; i < str.length; ++i) {
       var lookUp = ALPHABET_MAP[str[i]]
       if (lookUp === undefined) return false
@@ -192,7 +192,7 @@ test('random json values', function (t) {
   }
 })
 
-function validJSON(json) {
+function validJSON (json) {
   try {
     JSON.parse(JSON.stringify(json))
     return true
