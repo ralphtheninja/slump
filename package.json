@@ -9,7 +9,7 @@
     "url": "https://github.com/ralphtheninja/slump.git"
   },
   "scripts": {
-    "test": "tape test/*.js | faucet"
+    "test": "standard && tape test/*.js | faucet"
   },
   "author": "Lars-Magnus Skog <ralphtheninja@riseup.net>",
   "keywords": [
@@ -20,6 +20,7 @@
   "license": "WTFPL",
   "devDependencies": {
     "faucet": "0.0.1",
+    "standard": "^10.0.3",
     "tape": "^4.8.0"
   },
   "dependencies": {
