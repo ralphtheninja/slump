@@ -1,9 +1,11 @@
-var crypto = require('crypto')
+var sodium = require('sodium-universal')
 var util = require('core-util-is')
 var bs58 = require('bs58')
 
 function randomBytes (size) {
-  return crypto.randomBytes(size || 1)
+  var buf = Buffer.allocUnsafe(size)
+  sodium.randombytes_buf(buf)
+  return buf
 }
 
 function byte () {
