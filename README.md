@@ -1,4 +1,4 @@
-# slump [![Build Status](https://travis-ci.org/ralphtheninja/slump.svg?branch=master)](https://travis-ci.org/ralphtheninja/slump)
+# slump [![Build Status](https://travis-ci.org/ralphtheninja/slump.svg?branch=master)](https://travis-ci.org/ralphtheninja/slump) [![Greenkeeper badge](https://badges.greenkeeper.io/ralphtheninja/slump.svg)](https://greenkeeper.io/)
 
 Create random json.
 
