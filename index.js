@@ -1,6 +1,6 @@
 var crypto = require('crypto')
-var util   = require('core-util-is')
-var bs58   = require('bs58')
+var util = require('core-util-is')
+var bs58 = require('bs58')
 
 function randomBytes (size) {
   return crypto.randomBytes(size || 1)
@@ -32,8 +32,7 @@ function string (opts, length) {
 
   if (util.isNumber(opts)) {
     length = opts
-  }
-  else if (util.isObject(opts)) {
+  } else if (util.isObject(opts)) {
     length = length || opts.length
     enc = opts.enc || enc
 

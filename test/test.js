@@ -1,6 +1,6 @@
 var random = require('../')
-var test   = require('tape')
-var util   = require('core-util-is')
+var test = require('tape')
+var util = require('core-util-is')
 
 test('random integers', function (t) {
   t.plan(1000)
