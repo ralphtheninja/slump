@@ -89,14 +89,14 @@ function json (depth) {
   // if we are too deep don't generate more depth
   if (depth > 4 && type > 5) type %= 5
 
-  if (type == 0) return false
-  if (type == 1) return true
-  if (type == 2) return null
-  if (type == 3) return integer(true)
-  if (type == 4) return float()
-  if (type == 5) return string()
-  if (type == 6) return array(null, depth)
-  if (type == 7) return obj(null, depth)
+  if (type === 0) return false
+  if (type === 1) return true
+  if (type === 2) return null
+  if (type === 3) return integer(true)
+  if (type === 4) return float()
+  if (type === 5) return string()
+  if (type === 6) return array(null, depth)
+  if (type === 7) return obj(null, depth)
 }
 
 function encode (bytes, enc) {
