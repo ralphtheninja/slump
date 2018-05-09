@@ -36,23 +36,23 @@ console.log(JSON.stringify(random.json(), null, 2))
 
 ## Api
 
-#### `random.bytes([size])`
+### `random.bytes([size])`
 
 Returns a buffer of random bytes of size `size`, which defaults to one.
 
-#### `random.byte()`
+### `random.byte()`
 
 Returns a single random byte.
 
-#### `random.integer([signed])`
+### `random.integer([signed])`
 
 Returns a 32 bit integer. If `signed` is trueish both negative and positive values are generated. Default is non signed integers.
 
-#### `random.float()`
+### `random.float()`
 
 Returns a float as a result of division of two random integers. Random floats are always signed.
 
-#### `random.string([options[, length]])`
+### `random.string([options[, length]])`
 
 Returns a random string in `utf8` encoding.
 
@@ -62,36 +62,36 @@ Randomizes a much longer string of bytes and cuts it off to appropriate length.
 
 `options` can be used for different encodings:
 
-  * `options.enc` *(string)* Defaults to `utf8`. Valid encodings are `utf8`, `ascii`, `hex`, `base64` and `base58`
-  * `options.length` *(number)* Length of string.
-  * `options.values` *(array)* Array of predetermined strings.
+* `options.enc` *(string)* Defaults to `utf8`. Valid encodings are `utf8`, `ascii`, `hex`, `base64` and `base58`
+* `options.length` *(number)* Length of string.
+* `options.values` *(array)* Array of predetermined strings.
 
 ```js
-var random = require('slump')
+const random = require('slump')
 // random string with random length
-var s1 = random.string()
+const s1 = random.string()
 // random string with length 20
-var s2 = random.string(20)
+const s2 = random.string(20)
 // random base58 encoded string with length 30
-var s3 = random.string({ enc: 'base58', length: 30 })
+const s3 = random.string({ enc: 'base58', length: 30 })
 // randomize between predetermined values
-var values = [ 'apples', 'oranges', 'bananas' ]
-var s4 = random.string({ values: values })
+const values = [ 'apples', 'oranges', 'bananas' ]
+const s4 = random.string({ values: values })
 ```
 
-#### `random.array([length])`
+### `random.array([length])`
 
 Returns a fixed `length` random array where the elements are random json values, i.e. the elements can be anything from null, false, true, another json object etc.
 
 If `length` is omitted the string length is a random integer between `0` and `10`. So the array can be empty.
 
-#### `random.obj([size])`
+### `random.obj([size])`
 
 Returns a random object with `size` number of random keys and values. Each property is a `random.string()` (with random length) and each value is a `random.json()`.
 
 If `size` is omitted the number of properties is a random integer between `0` and `10`. So the object can be empty.
 
-#### `random.json()`
+### `random.json()`
 
 Generates a random `json` object value, i.e. either of the following:
 
