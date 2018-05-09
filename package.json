@@ -1,6 +1,6 @@
 {
   "name": "slump",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "create random json",
   "main": "index.js",
   "homepage": "https://github.com/ralphtheninja/slump",
