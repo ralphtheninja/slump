@@ -30,5 +30,8 @@
     "safe-buffer": "^5.1.1",
     "sodium-universal": "^2.0.0",
     "xtend": "^4.0.0"
+  },
+  "engines": {
+    "node": ">=4.0.0"
   }
 }

@@ -1,6 +1,11 @@
-# slump [![Build Status](https://travis-ci.org/ralphtheninja/slump.svg?branch=master)](https://travis-ci.org/ralphtheninja/slump) [![Greenkeeper badge](https://badges.greenkeeper.io/ralphtheninja/slump.svg)](https://greenkeeper.io/)
+# slump
 
-Create random json.
+> Create random json.
+
+[![npm](https://img.shields.io/npm/v/slump.svg)](https://www.npmjs.com/package/slump)
+![Node version](https://img.shields.io/node/v/slump.svg)
+[![Build Status](https://travis-ci.org/ralphtheninja/slump.svg?branch=master)](https://travis-ci.org/ralphtheninja/slump)
+[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 Ported from [`node-random-json`](https://github.com/maxtaco/node-random-json).
 
@@ -15,7 +20,7 @@ $ npm install slump --save
 Generate a random json object:
 
 ```js
-var random = require('slump')
+const random = require('slump')
 console.log(JSON.stringify(random.json(), null, 2))
 ```
 
