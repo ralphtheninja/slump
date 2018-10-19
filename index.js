@@ -1,7 +1,6 @@
 var sodium = require('sodium-universal')
 var util = require('core-util-is')
 var bs58 = require('bs58')
-var Buffer = require('safe-buffer').Buffer
 
 function randomBytes (size) {
   var buf = Buffer.allocUnsafe(size)
