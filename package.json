@@ -21,7 +21,7 @@
   "devDependencies": {
     "faucet": "0.0.1",
     "standard": "^12.0.0",
-    "tape": "^4.8.0"
+    "tape": "^5.0.0"
   },
   "dependencies": {
     "bs58": "^4.0.1",
